@@ -80,7 +80,7 @@ class HTTPClient(object):
 
         self.connect(pUrl.hostname, pUrl.port if pUrl.port else 80)
         self.sendall(
-            "GET {} HTTP/1.1\r\nHost: {}\r\n\r\n".format(pUrl.path if pUrl.path else "/", pUrl.hostname))
+            "GET {} HTTP/1.1\r\nHost: {}\r\nConnection: close\r\n\r\n".format(pUrl.path if pUrl.path else "/", pUrl.hostname))
         data = self.recvall(self.socket)
         print(data)
         code = self.get_code(data)
