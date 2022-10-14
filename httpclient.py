@@ -75,14 +75,11 @@ class HTTPClient(object):
 
     def GET(self, url, args=None):
         pUrl = urlparse(url)
-        print("\n"+pUrl.path if pUrl.path else "/",
-              pUrl.port if pUrl.port else 80, pUrl.hostname)
 
         self.connect(pUrl.hostname, pUrl.port if pUrl.port else 80)
         self.sendall(
             "GET {} HTTP/1.1\r\nHost: {}\r\nConnection: close\r\n\r\n".format(pUrl.path if pUrl.path else "/", pUrl.hostname))
         data = self.recvall(self.socket)
-        print(data)
         code = self.get_code(data)
         body = self.get_body(data)
         self.close()
