@@ -46,10 +46,7 @@ class HTTPClient(object):
         return None
 
     def get_code(self, data):
-        try:
-            return int(data.split("\r\n")[0].split(" ")[1])
-        except:
-            return int(data.split("\r\n")[0].split(" ")[1])
+        return int(data.split("\r\n")[0].split(" ")[1])
 
     def get_headers(self, data):
         return (data.split("\r\n\r\n")[0])
