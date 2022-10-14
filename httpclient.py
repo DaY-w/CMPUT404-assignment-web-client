@@ -17,6 +17,8 @@
 # Do not use urllib's HTTP GET and POST mechanisms.
 # Write your own HTTP GET and POST
 # The point is to understand what you have to send and get experience with it
+# used the following to help with the POST request. No code copied just referenced
+# https://stackoverflow.com/questions/28670835/python-socket-client-post-parameters
 
 import sys
 import socket
